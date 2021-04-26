@@ -1,26 +1,37 @@
+// old way
 // document.write("Hi I am text");
 //document.write("<h1> Hi h1>");
 
-const create = () => {
-  // 1. step
-  const newElement = document.createElement("div");
+const addToGamwlist = (e) => {
+  e.preventDefault();
+  let ouruserprojectdata = document.querySelector("#ouruserprojectdata").value;
 
-  const newText = document.createTextNode("I am a new element 😉");
-
-  // 2. step
-  // div                  // text
-  newElement.appendChild(newText);
-  document.body.appendChild(newElement);
+  console.log(ouruserprojectdata);
+  if (ouruserprojectdata != "") {
+    // ftiaxnoume ena li
+    let newListitem = document.createElement("li");
+    //rixnoume to text pou egrapse o user sto input mas
+    let texti = document.createTextNode(ouruserprojectdata);
+    //vazoume me .appendChild() to text tou giouzer mesa sto list mas
+    newListitem.appendChild(texti);
+    // Adding random colour to my list ama theloume
+    //newListitem.style.color = "black";
+    //rixnoume to newListitem mesa sto item me to //class name bigresult
+    document.querySelector(".bigresult").appendChild(newListitem);
+  } else {
+    document.querySelector("#ouruserprojectdata").placeholder =
+      "Please Enter text first";
+  }
 };
-
 const addToList = (e) => {
   // Preventing the from sending information out aka Reloading the page
   e.preventDefault();
   let userData = document.querySelector("#userData").value;
-  console.log(userData);
+
   // Checking my input if it has a text
   if (userData != "") {
     let newLi = document.createElement("li");
+
     let text = document.createTextNode(userData);
     newLi.appendChild(text);
     // Adding random colour to my list item
@@ -77,4 +88,4 @@ const keyCheck = (event) => {
 // userInput.addEventListener("keypress", keyCheck);
 
 // Adding event listener to the form
-document.querySelector("form").addEventListener("submit", addToList);
+document.querySelector("form").addEventListener("submit", addToGamwlist);
