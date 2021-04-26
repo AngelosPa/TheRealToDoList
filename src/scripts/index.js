@@ -9,3 +9,4 @@ const create = () => {
   newElement.appendChild(newText);
   document.body.appendChild(newElement);
 };
+const addToprojectList = () => {};
