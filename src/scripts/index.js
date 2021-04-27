@@ -27,7 +27,7 @@ const addToGamwlist = (e) => {
 
     koubidone.innerHTML = "ready ✓";
     koubidelete.innerHTML = "let it go✗";
-    newprjectplaceholder.placeholder = "important notes";
+    newprjectplaceholder.placeholder = "useful notes";
     newprjectplaceholder.className = "forthenotbook";
     importance.className = "veryimportant";
     //
@@ -44,8 +44,18 @@ const addToGamwlist = (e) => {
 
     // Complete function
     // toggle will check if the class name exist, will remove it and if it's not will add it
-    const checkit = () => newListitem.classList.toggle("completed");
+    const checkit = () => {
+      newListitem.classList.toggle("completed");
+      newListitem.classList.toggle("completedopacity");
+    };
+    const changeColour = () => {
+      newListitem.classList.toggle("veryImportantTriggeredlist");
+      importance.classList.toggle("veryImportantTriggereButton");
+      //importance.style.backgroundColor = "red";
+      //newListitem.style.border = "5px solid red";
+    };
     koubidone.addEventListener("click", checkit);
+    importance.addEventListener("click", changeColour);
     // const del = () => newLi.remove() ;
     // Adding event listener to my buttons
     koubidelete.addEventListener("click", () => newListitem.remove());

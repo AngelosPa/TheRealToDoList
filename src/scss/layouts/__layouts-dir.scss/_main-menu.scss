@@ -54,17 +54,42 @@ body {
   border: none;
   border-radius: 7%;
 }
-input::placeholder {
-  color: black;
-}
+
+//classes from js
 .veryimportant {
-  background-color: red;
+  background-color: rgba(180, 163, 163, 0.383);
   color: black;
-  width: 5rem;
+  width: 6rem;
   height: 2rem;
   text-align: center;
   font-style: bold;
+  font-size: 1.2rem;
+  margin: 1rem;
 }
+.veryImportantTriggeredlist {
+  font-style: bold;
+  color: rgb(0, 0, 0);
+  //background-color: rgba(134, 12, 12, 0.561);
+  box-shadow: inset 0px 0px 3px 1px red;
+  font-size: 2.2rem;
+}
+.veryImportantTriggereButton {
+  font-style: bold;
+
+  border: 5px, solid, red;
+  background-color: red;
+}
+.completed {
+  /* some fancy styles */
+  text-decoration: line-through;
+}
+.completedopacity {
+  opacity: 50%;
+}
+.done {
+  color: red;
+}
+
 form {
   display: flex;
   align-items: center;
@@ -128,6 +153,7 @@ li {
   position: relative;
   div {
     position: absolute;
+
     right: 0;
     top: 0rem;
     button {
@@ -136,12 +162,4 @@ li {
       margin: 0.3rem;
     }
   }
-}
-
-.completed {
-  /* some fancy styles */
-  text-decoration: line-through;
-}
-.done {
-  color: red;
 }
