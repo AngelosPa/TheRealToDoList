@@ -57,7 +57,14 @@ body {
 input::placeholder {
   color: black;
 }
-
+.veryimportant {
+  background-color: red;
+  color: black;
+  width: 5rem;
+  height: 2rem;
+  text-align: center;
+  font-style: bold;
+}
 form {
   display: flex;
   align-items: center;
