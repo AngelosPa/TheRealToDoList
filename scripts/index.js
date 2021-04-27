@@ -23,8 +23,12 @@ const addToGamwlist = (e) => {
     const koubidelete = document.createElement("button");
     const newprjectplaceholder = document.createElement("input");
     const importance = document.createElement("button");
+    const timing = document.createElement("div");
+    timing.innerHTML = `${new Date().getDate()}.${
+      new Date().getMonth() + 1
+    }.${new Date().getFullYear()}`;
     importance.innerHTML = "important";
-
+    //
     koubidone.innerHTML = "ready ✓";
     koubidelete.innerHTML = "let it go✗";
     newprjectplaceholder.placeholder = "useful notes";
@@ -36,6 +40,7 @@ const addToGamwlist = (e) => {
     newbox.appendChild(koubidelete);
     newbox.appendChild(newprjectplaceholder);
     newbox.appendChild(importance);
+    newbox.appendChild(timing);
     newListitem.appendChild(newbox);
     // Adding class
 
