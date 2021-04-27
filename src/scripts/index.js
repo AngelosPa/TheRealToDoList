@@ -24,7 +24,9 @@ const addToGamwlist = (e) => {
     const newprjectplaceholder = document.createElement("input");
     const importance = document.createElement("button");
     const timing = document.createElement("div");
-    timing.innerHTML = `${new Date().getDate()}.${new Date().getMonth()}.${new Date().getFullYear()}`;
+    timing.innerHTML = `${new Date().getDate()}.${
+      new Date().getMonth() + 1
+    }.${new Date().getFullYear()}`;
     importance.innerHTML = "important";
     //
     koubidone.innerHTML = "ready ✓";
