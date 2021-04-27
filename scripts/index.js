@@ -19,6 +19,7 @@ const addToGamwlist = (e) => {
     document.querySelector("#ouruserprojectdata").value = "";
     //ftiaxnoume divaki me 2 koubia
     const newbox = document.createElement("div");
+    newbox.classList.add("basics");
     const koubidone = document.createElement("button");
     const koubidelete = document.createElement("button");
     const newprjectplaceholder = document.createElement("input");
