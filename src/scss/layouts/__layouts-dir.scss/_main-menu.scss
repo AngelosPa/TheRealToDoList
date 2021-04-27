@@ -37,7 +37,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  width: auto;
+  width: 100%;
   background-color: #045d1a36;
   box-shadow: -1px -0.3rem 0.3rem 0.3px #045d1a36;
   border: 2px outset #3b0a31;
@@ -149,12 +149,12 @@ li {
   max-width: 50vw;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  position: relative;
+  // position: relative;
   div {
-    position: absolute;
+    // position: absolute;
 
-    right: 0;
-    top: 0rem;
+    // right: 0;
+    // top: 0rem;
     button {
       width: 4rem;
       height: 3rem;

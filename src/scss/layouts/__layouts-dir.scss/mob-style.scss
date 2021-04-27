@@ -10,35 +10,17 @@
     display: block;
   }
   li {
-    position: relative;
-
-    div {
-      position: absolute;
-      left: 3rem;
-      margin: 12rem 0 12rem 0;
-      width: 100vw;
-      display: block;
-      box-shadow: none;
-    }
-  }
-  .bigresult {
-    margin-top: 10rem;
+    display: block;
+    margin: 3rem 0 3rem 0;
   }
   ul {
-    li {
-      margin: 9rem 0 9rem 0;
-    }
+    height: 100%;
   }
-  li,
-  .maincontainer,
-  #ouruserprojectdata,
-  .bigresult,
-  form,
-  .bigresult {
-    border: none;
-    display: block;
-    box-shadow: none;
-    width: 100vw;
-    margin: 3rem 0 3rem 0;
+  .basics {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
