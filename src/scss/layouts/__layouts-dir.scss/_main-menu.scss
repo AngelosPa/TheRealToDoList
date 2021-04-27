@@ -13,7 +13,6 @@ body {
   flex-wrap: wrap;
   flex-direction: column;
   background: linear-gradient(#2fbb52c9, #b440ae67, #2fbb52c9);
-  //   background: linear-gradient(#2fbb52c9, #b440aea4);
 
   width: 100vh;
   height: 100vh;
@@ -46,15 +45,13 @@ body {
 
   li {
     display: flex;
-
-    border: 1px outset #3b0a31;
     justify-content: space-between;
     flex-wrap: wrap;
   }
 }
 .forthenotbook {
   background-color: transparent;
-
+  border: none;
   border-radius: 7%;
 }
 input::placeholder {
