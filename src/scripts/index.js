@@ -1,10 +1,8 @@
-// old way
-// document.write("Hi I am text");
-//document.write("<h1> Hi h1>");
-
+// VERSION WITH BUBBLING
 const addToGamwlist = (e) => {
-  // Preventing the from sending information out aka Reloading the page
+  // e.preventDefault(); Preventing the from sending information out aka Reloading the page
   e.preventDefault();
+
   let ouruserprojectdata = document.querySelector("#ouruserprojectdata").value;
   console.log(ouruserprojectdata);
   if (ouruserprojectdata != "") {
@@ -17,54 +15,82 @@ const addToGamwlist = (e) => {
     //vazoume me .appendChild() to list item mas mesa sto bigresult mas
     document.querySelector(".bigresult").appendChild(newListitem);
     document.querySelector("#ouruserprojectdata").value = "";
-    //ftiaxnoume divaki me 2 koubia
+    //ftiaxnoume divaki me koubia k oti allo 8eloume n exei mesa
+    // Adding class:
+    //dinoume padou classes me classList add gia na ta pianoume pio eukola
     const newbox = document.createElement("div");
     newbox.classList.add("basics");
+    //koubi gia done
     const koubidone = document.createElement("button");
+    koubidone.classList.add("done");
+    //koubi gia delete
     const koubidelete = document.createElement("button");
+    koubidelete.classList.add("svisto");
+    //koutaki gia placeholder
     const newprjectplaceholder = document.createElement("input");
+    //koubi gia importance
     const importance = document.createElement("button");
+    importance.className = "veryimportant";
+    // text gia date
     const timing = document.createElement("div");
     timing.innerHTML = `${new Date().getDate()}.${
       new Date().getMonth() + 1
     }.${new Date().getFullYear()}`;
+    //dinoume onomata sta koubia mas na kserei o user ti skt kanoun
     importance.innerHTML = "important";
     //
     koubidone.innerHTML = "ready ✓";
     koubidelete.innerHTML = "let it go✗";
     newprjectplaceholder.placeholder = "useful notes";
     newprjectplaceholder.className = "forthenotbook";
-    importance.className = "veryimportant";
-    //
+
     // Injecting the buttons into the our box
+
     newbox.appendChild(koubidone);
     newbox.appendChild(koubidelete);
     newbox.appendChild(newprjectplaceholder);
     newbox.appendChild(importance);
     newbox.appendChild(timing);
     newListitem.appendChild(newbox);
-    // Adding class
-
-    koubidone.classList.add("done");
-    // Complete function
 
     // Complete function
     // toggle will check if the class name exist, will remove it and if it's not will add it
-    const checkit = () => {
-      newListitem.classList.toggle("completed");
-      newListitem.classList.toggle("completedopacity");
+    //WE NEED TO SPECIFY WHICH ELEMENT WE TARGET SO ->E IN PARAMETERS AND e.target.parentElement.parentElement. OR e.target.parentElement DEPENDS ON THE RELATION THAT OUR TARGETED ELEMENT HAS
+    const checkit = (e) => {
+      e.target.parentElement.parentElement.classList.toggle("completed");
+      e.target.parentElement.parentElement.classList.toggle("completedopacity");
     };
-    const changeColour = () => {
-      newListitem.classList.toggle("veryImportantTriggeredlist");
-      importance.classList.toggle("veryImportantTriggereButton");
+    //WE NEED TO SPECIFY WHICH ELEMENT WE TARGET SO ->E IN PARAMETERS AND e.target.parentElement.parentElement. OR e.target.parentElement DEPENDS ON THE RELATION THAT OUR TARGETED ELEMENT HAS
+    // to create the red affect with importance
+    const changeColour = (e) => {
+      e.target.parentElement.parentElement.classList.toggle(
+        "veryImportantTriggeredlist"
+      );
+      e.target.classList.toggle("veryImportantTriggereButton");
+      //NO NEEDED, ADDED IN CSS
       //importance.style.backgroundColor = "red";
       //newListitem.style.border = "5px solid red";
     };
-    koubidone.addEventListener("click", checkit);
-    importance.addEventListener("click", changeColour);
-    // const del = () => newLi.remove() ;
-    // Adding event listener to my buttons
-    koubidelete.addEventListener("click", () => newListitem.remove());
+    //START BUBBLING
+    //ONE ADDEVENTLISTENER TO RULE THEM ALL!!!!!
+    //PIANOUME OLO TO CONTAINER
+    const lista = document.querySelector(".bigresult");
+    //KANOUME ENA MEGALO ADDEVENTLISTENER ME ENA FUNCTION GIA NA TRIGGAROUME OLA TA YPOLOIPA ADDEVENTLISTENER POU EXOUME
+    lista.addEventListener("click", function (e) {
+      console.log(e.target.type);
+      //we grab what we want with className kai ekteloume ta functions
+      if (e.target.className == "veryimportant") {
+        console.log(e.target.className);
+        changeColour(e);
+      }
+      if (e.target.className == "done") {
+        checkit(e);
+      }
+      if (e.target.className == "svisto") {
+        e.target.parentElement.parentElement.remove();
+      }
+    });
+    // if {}
   } else {
     document.querySelector("#ouruserprojectdata").placeholder =
       "write here your task...";
@@ -77,6 +103,3 @@ const keyCheck = (e) => {
   //console.log(event);
   if (e.key == "Enter") addToGamwlist(e);
 };
-// Adding event listener to the input
-// const userInput = document.querySelector("#userData");
-// userInput.addEventListener("keypress", keyCheck);
